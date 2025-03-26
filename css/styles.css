@@ -1,0 +1,418 @@
+html, body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+body * {
+    font-weight: 100;
+    color: #FFFFFF;
+}
+
+#content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#content.visible {
+    opacity: 1;
+}
+
+/* Main div styling */
+.wrapper {
+    box-sizing: border-box;
+    height: calc(100vh - 40px);
+    width: calc(100vw - 40px);
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.top-section {
+    text-align: left;
+    padding: 20px;
+}
+.top-section h1 {
+    font-size: 3em;
+    margin: 0;
+}
+.top-section h4 {
+    margin: 0 0 20px 0;
+    font-size: 1.5em;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container h1 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+#toggle-mode {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+#toggle-mode:hover {
+    color: #ddd;
+}
+
+body.light-mode #toggle-mode {
+    color: #7D7D7D;
+}
+
+body.light-mode #toggle-mode:hover {
+    color: #4D4D4D;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+/* Left container styling */
+.container-left {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Left container button styling */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.button-container button {
+    margin: 0 0 15px 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.button-container button:hover,
+.button-container button:focus,
+.button-container button:active {
+    color: #7D7D7D;
+}
+
+/* Right container styling */
+.container-right {
+    width: 70%;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    height: 100%;
+}
+.container-right::-webkit-scrollbar {
+    width: 8px;
+}
+.container-right::-webkit-scrollbar-thumb {
+    background: #7D7D7D;
+    border-radius: 4px;
+}
+.container-right::-webkit-scrollbar-thumb:hover {
+    background: #7D7D7D;
+}
+
+/* about content styling */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #FFFFFF;
+}
+.about-content button {
+    margin-right: 10px;
+}
+
+.icon-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+.icon-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 1em;
+    color: #FFFFFF;
+    transition: color 0.3s;
+}
+.icon-buttons button i {
+    font-size: 1.2em;
+    color: #FFFFFF;
+    transition: color 0.3s, transform 0.2s;
+}
+.icon-buttons button:hover i {
+    color: #7D7D7D;
+    transform: scale(1.1);
+}
+.icon-buttons button:focus i {
+    outline: none;
+}
+.icon-buttons button span {
+    color: #FFFFFF;
+    transition: color 0.3s, transform 0.2s;
+}
+.icon-buttons button:hover span {
+    color: #7D7D7D;
+    transform: scale(1.1);
+}
+.icon-buttons button:focus span {
+    outline: none;
+}
+
+/* projects content styling */
+.projects-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.project-button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    color: #FFFFFF;
+    transition: color 0.3s, transform 0.2s; 
+    align-self: flex-end;
+    text-align: right;
+}
+.project-button h1 {
+    margin: 0 0 5px 0;
+    font-size: 3em;
+    transition: color 0.3s;
+}
+.project-button p {
+    margin: 0;
+    font-size: 1em;
+    color: #B0B0B0;
+    transition: color 0.3s;
+}
+.project-button:hover h1,
+.project-button:hover p {
+    color: #7D7D7D;
+}
+
+/* contact content styling */
+.contact-content {
+    position: relative; /* Ensure the parent container is positioned */
+    height: 70vh; /* Take full height of the parent container */
+    text-align: right;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.contact-buttons {
+    position: absolute; /* Keep absolute positioning */
+    bottom: 10px; /* Move it to the bottom */
+    right: 10px; /* Keep it aligned to the right */
+    display: flex;
+    flex-direction: column; /* Stack buttons from top to bottom */
+    gap: 15px; /* Add spacing between buttons */
+}
+
+.contact-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    text-align: right;
+    transition: color 0.3s, transform 0.2s;
+}
+.contact-button i {
+    font-size: 1.5em;
+    margin-right: 5px;
+    color: #FFFFFF;
+    transition: color 0.3s, transform 0.2s;
+}
+.contact-button:hover i,
+.contact-button:hover span {
+    color: #7D7D7D;
+    transform: scale(1.1);
+}
+.contact-button span {
+    font-size: 1.5em;
+    color: #FFFFFF;
+    transition: color 0.3s, transform 0.2s;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    /* Top section adjustments */
+    .top-section {
+        padding: 10px;
+    }
+    .top-section h1 {
+        font-size: 2em;
+    }
+    .top-section h4 {
+        font-size: 1.2em;
+    }
+
+    /* Left container adjustments */
+    .container-left {
+        padding: 10px;
+    }
+    .button-container button {
+        margin: 10px 0;
+        font-size: 0.8em;
+    }
+
+    /* Right container adjustments */
+    .container-right {
+        width: 100%;
+        height: auto;
+    }
+
+    /* About content adjustments */
+    .about-content {
+        font-size: 1em;
+    }
+
+    /* Projects content adjustments */
+    .project-button h1 {
+        font-size: 2em;
+    }
+    .project-button p {
+        font-size: 0.9em;
+    }
+
+    /* Contact content adjustments */
+    .contact-button {
+        font-size: 0.9em;
+    }
+    .contact-button i {
+        font-size: 0.9em;
+    }
+    .contact-button span {
+        font-size: 0.9em;
+    }
+}
+
+/* Gradient animation for dark mode */
+@keyframes dark-gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Gradient animation for light mode */
+@keyframes light-gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dark mode background */
+body {
+    background: linear-gradient(-45deg, #000000, #0c0c0c, #191919, #262626);
+    background-size: 400% 400%;
+    animation: dark-gradient-animation 60s ease infinite;
+    color: #FFFFFF;
+}
+
+/* Light mode background */
+body.light-mode {
+    background: linear-gradient(-45deg, #e5e5e5, #cccccc, #b2b2b2, #999999);
+    background-size: 400% 400%;
+    animation: light-gradient-animation 60s ease infinite;
+    color: #000000;
+}
+
+/* Ensure all text and elements adapt to the mode */
+body.light-mode * {
+    color: #000000;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+body.light-mode * {
+    color: #000000;
+}
+
+body.light-mode .button-container button:hover,
+body.light-mode .button-container button:focus,
+body.light-mode .button-container button:active {
+    color: #4D4D4D;
+}
+
+body.light-mode .container-right::-webkit-scrollbar-thumb {
+    background: #4D4D4D;
+}
+
+body.light-mode .container-right::-webkit-scrollbar-thumb:hover {
+    background: #4D4D4D;
+}
+
+body.light-mode .icon-buttons button i,
+body.light-mode .icon-buttons button span,
+body.light-mode .project-button h1,
+body.light-mode .project-button p,
+body.light-mode .contact-button i,
+body.light-mode .contact-button span {
+    color: #000000;
+}
+
+body.light-mode .icon-buttons button:hover i,
+body.light-mode .icon-buttons button:hover span,
+body.light-mode .project-button:hover h1,
+body.light-mode .project-button:hover p,
+body.light-mode .contact-button:hover i,
+body.light-mode .contact-button:hover span {
+    color: #4D4D4D;
+}
