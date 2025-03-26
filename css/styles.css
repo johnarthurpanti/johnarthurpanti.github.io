@@ -358,7 +358,7 @@ body.light-mode #toggle-mode:hover {
 body {
     background: linear-gradient(-45deg, #000000, #0c0c0c, #191919, #262626);
     background-size: 400% 400%;
-    animation: dark-gradient-animation 15s ease infinite;
+    animation: dark-gradient-animation 60s ease infinite;
     color: #FFFFFF;
 }
 
@@ -366,7 +366,7 @@ body {
 body.light-mode {
     background: linear-gradient(-45deg, #e5e5e5, #cccccc, #b2b2b2, #999999);
     background-size: 400% 400%;
-    animation: light-gradient-animation 15s ease infinite;
+    animation: light-gradient-animation 60s ease infinite;
     color: #000000;
 }
 
